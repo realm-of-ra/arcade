@@ -30,7 +30,7 @@ mod AchievableComponent {
 
     #[generate_trait]
     impl InternalImpl<
-        TContractState, +HasComponent<TContractState>
+        TContractState, +HasComponent<TContractState>,
     > of InternalTrait<TContractState> {
         /// Create an achievement
         ///
@@ -83,7 +83,7 @@ mod AchievableComponent {
                     title,
                     description,
                     tasks,
-                    data
+                    data,
                 );
         }
 

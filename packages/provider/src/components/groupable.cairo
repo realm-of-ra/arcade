@@ -24,7 +24,7 @@ mod GroupableComponent {
 
     #[generate_trait]
     impl InternalImpl<
-        TContractState, +HasComponent<TContractState>
+        TContractState, +HasComponent<TContractState>,
     > of InternalTrait<TContractState> {
         fn add(
             self: @ComponentState<TContractState>,

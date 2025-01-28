@@ -20,7 +20,7 @@ pub impl SocialsImpl of SocialsTrait {
         telegram: Option<ByteArray>,
         twitter: Option<ByteArray>,
         youtube: Option<ByteArray>,
-        website: Option<ByteArray>
+        website: Option<ByteArray>,
     ) -> Socials {
         let discord = match discord {
             Option::Some(discord) => discord,
@@ -47,7 +47,7 @@ pub impl SocialsImpl of SocialsTrait {
             telegram: telegram,
             twitter: twitter,
             youtube: youtube,
-            website: website
+            website: website,
         }
     }
 }
@@ -88,7 +88,7 @@ mod tests {
         let json = socials.jsonify();
         assert_eq!(
             json,
-            "{\"discord\":\"discord\",\"telegram\":\"telegram\",\"twitter\":\"twitter\",\"youtube\":\"youtube\",\"website\":\"website\"}"
+            "{\"discord\":\"discord\",\"telegram\":\"telegram\",\"twitter\":\"twitter\",\"youtube\":\"youtube\",\"website\":\"website\"}",
         );
     }
 }

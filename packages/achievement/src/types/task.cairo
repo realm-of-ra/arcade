@@ -15,7 +15,7 @@ pub mod errors {
 #[generate_trait]
 impl TaskImpl of TaskTrait {
     #[inline]
-    fn new(id: felt252, total: u32, description: ByteArray,) -> Task {
+    fn new(id: felt252, total: u32, description: ByteArray) -> Task {
         // [Check] Inputs
         TaskAssert::assert_valid_id(id);
         TaskAssert::assert_valid_total(total);

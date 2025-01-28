@@ -21,13 +21,13 @@ mod FollowableComponent {
 
     #[generate_trait]
     impl InternalImpl<
-        TContractState, +HasComponent<TContractState>
+        TContractState, +HasComponent<TContractState>,
     > of InternalTrait<TContractState> {
         fn follow(
             self: @ComponentState<TContractState>,
             world: WorldStorage,
             player_id: felt252,
-            followed: felt252
+            followed: felt252,
         ) {
             // [Setup] Datastore
             let mut store = StoreTrait::new(world);
@@ -41,7 +41,7 @@ mod FollowableComponent {
             self: @ComponentState<TContractState>,
             world: WorldStorage,
             player_id: felt252,
-            followed: felt252
+            followed: felt252,
         ) {
             // [Setup] Datastore
             let mut store = StoreTrait::new(world);

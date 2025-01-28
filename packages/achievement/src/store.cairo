@@ -51,25 +51,25 @@ impl StoreImpl of StoreTrait {
         data: ByteArray,
     ) {
         let event: TrophyCreation = CreationTrait::new(
-            id, hidden, index, points, start, end, group, icon, title, description, tasks, data
+            id, hidden, index, points, start, end, group, icon, title, description, tasks, data,
         );
         self.world.emit_event(@event);
     }
 
     #[inline]
-    fn progress(mut self: Store, player_id: felt252, task_id: felt252, count: u32, time: u64,) {
+    fn progress(mut self: Store, player_id: felt252, task_id: felt252, count: u32, time: u64) {
         let event: TrophyProgression = ProgressTrait::new(player_id, task_id, count, time);
         self.world.emit_event(@event);
     }
 
     #[inline]
-    fn pin(mut self: Store, player_id: felt252, achievement_id: felt252, time: u64,) {
+    fn pin(mut self: Store, player_id: felt252, achievement_id: felt252, time: u64) {
         let event: TrophyPinning = PinningTrait::new(player_id, achievement_id, time);
         self.world.emit_event(@event);
     }
 
     #[inline]
-    fn unpin(mut self: Store, player_id: felt252, achievement_id: felt252,) {
+    fn unpin(mut self: Store, player_id: felt252, achievement_id: felt252) {
         let event: TrophyPinning = PinningTrait::new(player_id, achievement_id, 0);
         self.world.emit_event(@event);
     }

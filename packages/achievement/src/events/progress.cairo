@@ -13,7 +13,7 @@ pub mod errors {
 #[generate_trait]
 impl ProgressImpl of ProgressTrait {
     #[inline]
-    fn new(player_id: felt252, task_id: felt252, count: u32, time: u64,) -> TrophyProgression {
+    fn new(player_id: felt252, task_id: felt252, count: u32, time: u64) -> TrophyProgression {
         // [Check] Inputs
         ProgressAssert::assert_valid_task(task_id);
         // [Return] Progress
@@ -44,7 +44,7 @@ mod tests {
 
     #[test]
     fn test_achievement_progress_new() {
-        let progress = ProgressTrait::new(PLAYER_ID, TASK_ID, COUNT, TIME,);
+        let progress = ProgressTrait::new(PLAYER_ID, TASK_ID, COUNT, TIME);
 
         assert_eq!(progress.player_id, PLAYER_ID);
         assert_eq!(progress.task_id, TASK_ID);

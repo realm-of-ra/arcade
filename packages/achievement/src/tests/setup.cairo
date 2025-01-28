@@ -14,7 +14,7 @@ mod setup {
     use dojo::world::{WorldStorage, WorldStorageTrait};
     use dojo_cairo_test::{
         spawn_test_world, NamespaceDef, ContractDef, TestResource, ContractDefTrait,
-        WorldStorageTestTrait
+        WorldStorageTestTrait,
     };
 
     // Internal imports
@@ -55,12 +55,14 @@ mod setup {
     #[inline]
     fn setup_namespace() -> NamespaceDef {
         NamespaceDef {
-            namespace: "namespace", resources: [
+            namespace: "namespace",
+            resources: [
                 TestResource::Event(events::e_TrophyCreation::TEST_CLASS_HASH),
                 TestResource::Event(events::e_TrophyProgression::TEST_CLASS_HASH),
                 TestResource::Event(events::e_TrophyPinning::TEST_CLASS_HASH),
                 TestResource::Contract(Achiever::TEST_CLASS_HASH),
-            ].span()
+            ]
+                .span(),
         }
     }
 
@@ -68,7 +70,8 @@ mod setup {
         [
             ContractDefTrait::new(@"namespace", @"Achiever")
                 .with_writer_of([dojo::utils::bytearray_hash(@"namespace")].span()),
-        ].span()
+        ]
+            .span()
     }
 
     #[inline]

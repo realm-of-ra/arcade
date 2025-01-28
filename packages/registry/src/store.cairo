@@ -37,7 +37,7 @@ impl StoreImpl of StoreTrait {
 
     #[inline]
     fn get_achievement(
-        self: Store, world_address: felt252, namespace: felt252, id: felt252
+        self: Store, world_address: felt252, namespace: felt252, id: felt252,
     ) -> Achievement {
         self.world.read_model((world_address, namespace, id))
     }

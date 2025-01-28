@@ -43,7 +43,7 @@ mod tests {
 
     #[test]
     fn test_pinning_new() {
-        let pinning = PinningTrait::new(PLAYER_ID, ACHIEVEMENT_ID, TIME,);
+        let pinning = PinningTrait::new(PLAYER_ID, ACHIEVEMENT_ID, TIME);
         assert_eq!(pinning.player_id, PLAYER_ID);
         assert_eq!(pinning.achievement_id, ACHIEVEMENT_ID);
         assert_eq!(pinning.time, TIME);

@@ -65,11 +65,11 @@ fn test_registrable_register() {
     assert_eq!(game.karma, 0);
     assert_eq!(
         game.metadata,
-        "{\"color\":\"\",\"name\":\"\",\"description\":\"\",\"image\":\"\",\"banner\":\"\"}"
+        "{\"color\":\"\",\"name\":\"\",\"description\":\"\",\"image\":\"\",\"banner\":\"\"}",
     );
     assert_eq!(
         game.socials,
-        "{\"discord\":\"\",\"telegram\":\"\",\"twitter\":\"\",\"youtube\":\"\",\"website\":\"\"}"
+        "{\"discord\":\"\",\"telegram\":\"\",\"twitter\":\"\",\"youtube\":\"\",\"website\":\"\"}",
     );
     assert_eq!(game.owner, PLAYER().into());
 }
@@ -104,7 +104,7 @@ fn test_registrable_update() {
     let game = store.get_game(WORLD_ADDRESS, NAMEPSACE);
     assert_eq!(
         game.metadata,
-        "{\"color\":\"#123456\",\"name\":\"\",\"description\":\"\",\"image\":\"\",\"banner\":\"\"}"
+        "{\"color\":\"#123456\",\"name\":\"\",\"description\":\"\",\"image\":\"\",\"banner\":\"\"}",
     );
 }
 

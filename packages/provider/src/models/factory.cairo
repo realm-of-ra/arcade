@@ -15,14 +15,14 @@ pub mod errors {
 #[generate_trait]
 impl FactoryImpl of FactoryTrait {
     #[inline]
-    fn new(service: Service, version: felt252, default_version: felt252,) -> Factory {
+    fn new(service: Service, version: felt252, default_version: felt252) -> Factory {
         // [Check] Inputs
         let factory_id: u8 = service.into();
         FactoryAssert::assert_valid_identifier(factory_id);
         FactoryAssert::assert_valid_version(version);
         FactoryAssert::assert_valid_version(default_version);
         // [Return] Factory
-        Factory { id: factory_id, version: version, default_version: default_version, }
+        Factory { id: factory_id, version: version, default_version: default_version }
     }
 }
 

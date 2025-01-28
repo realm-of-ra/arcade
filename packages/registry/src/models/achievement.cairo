@@ -21,7 +21,7 @@ pub mod errors {
 impl AchievementImpl of AchievementTrait {
     #[inline]
     fn new(
-        world_address: felt252, namespace: felt252, identifier: felt252, karma: u16
+        world_address: felt252, namespace: felt252, identifier: felt252, karma: u16,
     ) -> Achievement {
         // [Check] Inputs
         AchievementAssert::assert_valid_world(world_address);

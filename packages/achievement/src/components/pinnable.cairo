@@ -29,7 +29,7 @@ mod PinnableComponent {
 
     #[generate_trait]
     impl InternalImpl<
-        TContractState, +HasComponent<TContractState>
+        TContractState, +HasComponent<TContractState>,
     > of InternalTrait<TContractState> {
         fn pin(
             self: @ComponentState<TContractState>,

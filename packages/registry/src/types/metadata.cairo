@@ -24,7 +24,7 @@ pub impl MetadataImpl of MetadataTrait {
         name: Option<ByteArray>,
         description: Option<ByteArray>,
         image: Option<ByteArray>,
-        banner: Option<ByteArray>
+        banner: Option<ByteArray>,
     ) -> Metadata {
         let color = match color {
             Option::Some(color) => color,
@@ -47,7 +47,7 @@ pub impl MetadataImpl of MetadataTrait {
             Option::None => "",
         };
         Metadata {
-            color: color, name: name, description: description, image: image, banner: banner
+            color: color, name: name, description: description, image: image, banner: banner,
         }
     }
 }
@@ -92,7 +92,7 @@ mod tests {
         let json = metadata.jsonify();
         assert_eq!(
             json,
-            "{\"color\":\"#123456\",\"name\":\"name\",\"description\":\"description\",\"image\":\"image\",\"banner\":\"banner\"}"
+            "{\"color\":\"#123456\",\"name\":\"name\",\"description\":\"description\",\"image\":\"image\",\"banner\":\"banner\"}",
         );
     }
 }

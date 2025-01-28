@@ -46,7 +46,7 @@ impl CreationImpl of CreationTrait {
         CreationAssert::assert_valid_points(points);
         // [Return] TrophyCreation
         TrophyCreation {
-            id, hidden, index, points, start, end, group, icon, title, description, tasks, data
+            id, hidden, index, points, start, end, group, icon, title, description, tasks, data,
         }
     }
 }
@@ -107,7 +107,7 @@ mod tests {
 
     #[test]
     fn test_achievement_creation_new() {
-        let tasks: Array<Task> = array![TaskTrait::new(TASK_ID, TOTAL, "TASK DESCRIPTION"),];
+        let tasks: Array<Task> = array![TaskTrait::new(TASK_ID, TOTAL, "TASK DESCRIPTION")];
         let achievement = CreationTrait::new(
             ID,
             HIDDEN,
@@ -120,7 +120,7 @@ mod tests {
             TITLE,
             "DESCRIPTION",
             tasks.span(),
-            "DATA"
+            "DATA",
         );
         assert_eq!(achievement.id, ID);
         assert_eq!(achievement.hidden, HIDDEN);
@@ -139,7 +139,7 @@ mod tests {
     #[test]
     #[should_panic(expected: ('Creation: invalid id',))]
     fn test_achievement_creation_new_invalid_id() {
-        let tasks: Array<Task> = array![TaskTrait::new(TASK_ID, TOTAL, "TASK DESCRIPTION"),];
+        let tasks: Array<Task> = array![TaskTrait::new(TASK_ID, TOTAL, "TASK DESCRIPTION")];
         CreationTrait::new(
             0,
             HIDDEN,
@@ -152,41 +152,52 @@ mod tests {
             TITLE,
             "DESCRIPTION",
             tasks.span(),
-            ""
+            "",
         );
     }
 
     #[test]
     #[should_panic(expected: ('Creation: invalid title',))]
     fn test_achievement_creation_new_invalid_title() {
-        let tasks: Array<Task> = array![TaskTrait::new(TASK_ID, TOTAL, "TASK DESCRIPTION"),];
+        let tasks: Array<Task> = array![TaskTrait::new(TASK_ID, TOTAL, "TASK DESCRIPTION")];
         CreationTrait::new(
-            ID, HIDDEN, INDEX, POINTS, START, END, GROUP, ICON, 0, "DESCRIPTION", tasks.span(), ""
+            ID, HIDDEN, INDEX, POINTS, START, END, GROUP, ICON, 0, "DESCRIPTION", tasks.span(), "",
         );
     }
 
     #[test]
     #[should_panic(expected: ('Creation: invalid desc.',))]
     fn test_achievement_creation_new_invalid_description() {
-        let tasks: Array<Task> = array![TaskTrait::new(TASK_ID, TOTAL, "TASK DESCRIPTION"),];
+        let tasks: Array<Task> = array![TaskTrait::new(TASK_ID, TOTAL, "TASK DESCRIPTION")];
         CreationTrait::new(
-            ID, HIDDEN, INDEX, POINTS, START, END, GROUP, ICON, TITLE, "", tasks.span(), ""
+            ID, HIDDEN, INDEX, POINTS, START, END, GROUP, ICON, TITLE, "", tasks.span(), "",
         );
     }
 
     #[test]
     #[should_panic(expected: ('Creation: invalid duration',))]
     fn test_achievement_creation_new_invalid_duration() {
-        let tasks: Array<Task> = array![TaskTrait::new(TASK_ID, TOTAL, "TASK DESCRIPTION"),];
+        let tasks: Array<Task> = array![TaskTrait::new(TASK_ID, TOTAL, "TASK DESCRIPTION")];
         CreationTrait::new(
-            ID, HIDDEN, INDEX, POINTS, START, 0, GROUP, ICON, TITLE, "DESCRIPTION", tasks.span(), ""
+            ID,
+            HIDDEN,
+            INDEX,
+            POINTS,
+            START,
+            0,
+            GROUP,
+            ICON,
+            TITLE,
+            "DESCRIPTION",
+            tasks.span(),
+            "",
         );
     }
 
     #[test]
     #[should_panic(expected: ('Creation: too much points',))]
     fn test_achievement_creation_new_invalid_points() {
-        let tasks: Array<Task> = array![TaskTrait::new(TASK_ID, TOTAL, "TASK DESCRIPTION"),];
+        let tasks: Array<Task> = array![TaskTrait::new(TASK_ID, TOTAL, "TASK DESCRIPTION")];
         CreationTrait::new(
             ID,
             HIDDEN,
@@ -199,7 +210,7 @@ mod tests {
             TITLE,
             "DESCRIPTION",
             tasks.span(),
-            ""
+            "",
         );
     }
 }

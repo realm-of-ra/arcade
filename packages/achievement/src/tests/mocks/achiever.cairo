@@ -19,7 +19,7 @@ trait IAchiever<TContractState> {
         tasks: Span<Task>,
         data: ByteArray,
     );
-    fn progress(self: @TContractState, player_id: felt252, task_id: felt252, count: u32,);
+    fn progress(self: @TContractState, player_id: felt252, task_id: felt252, count: u32);
 }
 
 #[dojo::contract]
@@ -50,14 +50,14 @@ pub mod Achiever {
     #[storage]
     pub struct Storage {
         #[substorage(v0)]
-        pub achievable: AchievableComponent::Storage
+        pub achievable: AchievableComponent::Storage,
     }
 
     #[event]
     #[derive(Drop, starknet::Event)]
     enum Event {
         #[flat]
-        AchievableEvent: AchievableComponent::Event
+        AchievableEvent: AchievableComponent::Event,
     }
 
     #[abi(embed_v0)]
@@ -92,11 +92,11 @@ pub mod Achiever {
                     title,
                     description,
                     tasks,
-                    data
+                    data,
                 );
         }
 
-        fn progress(self: @ContractState, player_id: felt252, task_id: felt252, count: u32,) {
+        fn progress(self: @ContractState, player_id: felt252, task_id: felt252, count: u32) {
             self.achievable.progress(self.world_storage(), player_id, task_id, count);
         }
     }

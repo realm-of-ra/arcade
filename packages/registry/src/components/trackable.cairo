@@ -25,7 +25,7 @@ mod TrackableComponent {
 
     #[generate_trait]
     impl InternalImpl<
-        TContractState, +HasComponent<TContractState>
+        TContractState, +HasComponent<TContractState>,
     > of InternalTrait<TContractState> {
         fn register(
             self: @ComponentState<TContractState>,

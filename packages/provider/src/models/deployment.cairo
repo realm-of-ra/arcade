@@ -19,7 +19,7 @@ pub mod errors {
 #[generate_trait]
 impl DeploymentImpl of DeploymentTrait {
     #[inline]
-    fn new(service: Service, project: felt252, tier: Tier, config: ByteArray,) -> Deployment {
+    fn new(service: Service, project: felt252, tier: Tier, config: ByteArray) -> Deployment {
         // [Check] Inputs
         DeploymentAssert::assert_valid_service(service);
         DeploymentAssert::assert_valid_project(project);

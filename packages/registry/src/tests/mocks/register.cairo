@@ -72,7 +72,7 @@ pub mod Register {
         #[substorage(v0)]
         pub initializable: InitializableComponent::Storage,
         #[substorage(v0)]
-        pub registerable: RegisterableComponent::Storage
+        pub registerable: RegisterableComponent::Storage,
     }
 
     #[event]
@@ -81,7 +81,7 @@ pub mod Register {
         #[flat]
         InitializableEvent: InitializableComponent::Event,
         #[flat]
-        RegisterableEvent: RegisterableComponent::Event
+        RegisterableEvent: RegisterableComponent::Event,
     }
 
     fn dojo_init(self: @ContractState, owner: felt252) {
@@ -127,7 +127,7 @@ pub mod Register {
                     telegram,
                     twitter,
                     youtube,
-                    website
+                    website,
                 );
         }
 

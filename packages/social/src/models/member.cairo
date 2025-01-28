@@ -120,7 +120,7 @@ impl MemberAssert of AssertTrait {
     #[inline]
     fn assert_can_leave(self: @Member) {
         assert(
-            *self.guild_id != 0 && *self.role != Role::Master.into(), errors::MEMBER_CANNOT_LEAVE
+            *self.guild_id != 0 && *self.role != Role::Master.into(), errors::MEMBER_CANNOT_LEAVE,
         );
     }
 
@@ -138,7 +138,7 @@ impl MemberAssert of AssertTrait {
     fn assert_is_crownable(self: @Member) {
         assert(
             self.role == @Role::Member.into() || self.role == @Role::Officer.into(),
-            errors::MEMBER_CANNOT_CROWN
+            errors::MEMBER_CANNOT_CROWN,
         );
     }
 

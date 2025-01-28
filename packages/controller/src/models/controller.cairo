@@ -38,7 +38,7 @@ impl ControllerImpl of ControllerTrait {
             signers: signers,
             address: address,
             network: network,
-            constructor_calldata: constructor_calldata
+            constructor_calldata: constructor_calldata,
         }
     }
 }
@@ -98,7 +98,7 @@ mod tests {
     #[test]
     fn test_controller_new() {
         let controller = ControllerTrait::new(
-            ACCOUNT_ID, IDENTIFIER, SIGNERS, ADDRESS, NETWORK, ""
+            ACCOUNT_ID, IDENTIFIER, SIGNERS, ADDRESS, NETWORK, "",
         );
         assert_eq!(controller.id, IDENTIFIER);
         assert_eq!(controller.account_id, ACCOUNT_ID);
@@ -111,7 +111,7 @@ mod tests {
     #[test]
     fn test_controller_assert_does_exist() {
         let controller = ControllerTrait::new(
-            ACCOUNT_ID, IDENTIFIER, SIGNERS, ADDRESS, NETWORK, ""
+            ACCOUNT_ID, IDENTIFIER, SIGNERS, ADDRESS, NETWORK, "",
         );
         controller.assert_does_exist();
     }
@@ -120,7 +120,7 @@ mod tests {
     #[should_panic(expected: 'Controller: already exists')]
     fn test_controller_revert_already_exists() {
         let controller = ControllerTrait::new(
-            ACCOUNT_ID, IDENTIFIER, SIGNERS, ADDRESS, NETWORK, ""
+            ACCOUNT_ID, IDENTIFIER, SIGNERS, ADDRESS, NETWORK, "",
         );
         controller.assert_does_not_exist();
     }

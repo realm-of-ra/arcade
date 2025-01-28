@@ -57,7 +57,7 @@ fn test_achievable_create() {
             TITLE,
             "Description",
             tasks,
-            ""
+            "",
         );
     let contract_event = starknet::testing::pop_log::<Event>(world.dispatcher.contract_address)
         .unwrap();

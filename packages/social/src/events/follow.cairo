@@ -14,7 +14,7 @@ pub mod errors {
 #[generate_trait]
 impl FollowImpl of FollowTrait {
     #[inline]
-    fn new(follower: felt252, followed: felt252, time: u64,) -> Follow {
+    fn new(follower: felt252, followed: felt252, time: u64) -> Follow {
         // [Check] Inputs
         // [Info] We don't check points here, leave free the game to decide
         FollowAssert::assert_valid_follower(follower);
